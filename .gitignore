@@ -1,0 +1,11 @@
+# Python
+*.pyc
+.Python
+
+# Virtualenv
+ve
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
