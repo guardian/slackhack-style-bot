@@ -1,4 +1,6 @@
-from flask import Flask
+import json
+
+from flask import Flask, Response
 
 # print a nice greeting.
 def say_hello(username = "World"):
@@ -25,6 +27,17 @@ application.add_url_rule('/', 'index', (lambda: header_text +
 # URL.
 application.add_url_rule('/<username>', 'hello', (lambda username:
     header_text + say_hello(username) + home_link + footer_text))
+
+def stylebot():
+    payload = json.dumps({'text': 'Hello from stylebot'})
+
+    return Response(response=payload,
+        status=200,
+        mimetype='application/json')
+
+application.add_url_rule('/stylebot', 'stylebot',
+    view_func=stylebot,
+    methods=['GET', 'POST'])
 
 # run the app.
 if __name__ == "__main__":
