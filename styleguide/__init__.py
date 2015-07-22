@@ -1,5 +1,6 @@
-import p
+import p, a
 
 messages = {}
 
-messages.update(p.messages)
+for chapter in [a, p]:
+	messages.update(chapter.messages)
