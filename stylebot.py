@@ -3,7 +3,10 @@ import re
 import styleguide
 
 def style(chat_text):
-	if re.search(r'picture credit', chat_text):
-		return styleguide.p.messages['picture_credit']
+	for key_text, message_key in [
+		(r'picture credit', 'picture_credit'),
+	]:
+		if re.search(key_text, chat_text):
+			return styleguide.messages[message_key]
 
 	return 'Hello from the Stylebot!'
